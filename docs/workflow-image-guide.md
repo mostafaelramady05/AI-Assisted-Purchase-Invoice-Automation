@@ -1,27 +1,22 @@
-# Full workflow image and map-style zoom
+# Explore the n8n workflow as a map
 
 [Back to the project](../README.md)
 
-## Available now
+## What is included
 
-[workflow-viewer.html](workflow-viewer.html) is a dependency-free image viewer with cursor-centered zoom, drag/pan, touch pinch, Fit, 100%, and fullscreen controls. Download the HTML file, open it in a browser, and choose a PNG, JPEG, or WebP image. The selected image stays in that browser; the viewer has no upload endpoint.
+- [Vector workflow map](assets/workflow-map.svg): 132 processing nodes and 146 connections from the uploaded workflow export.
+- [Self-contained explorer](workflow-viewer.html): zoom, drag, touch pinch, fullscreen, section navigation, and node-name search. The vector image and search index are embedded, so downloading this single HTML file is enough to use it locally.
 
-The full production n8n canvas image has not been supplied, so no full-workflow preview is claimed here.
+Download the HTML using GitHub's **Download raw file** control, then open it in a browser. Use **Section** to jump to document checks, purchase invoice posting, simplified-invoice journals, supplier payments, or the upload/status portal. Search a node name and choose a result to jump to its position. **Fit** returns to the overview; **100%** shows readable native node labels.
 
-## Prepare the real image
+The map uses custom styling and curves while preserving supplied node coordinates and connection topology. It is not a screenshot of the n8n editor or an editable/runnable workflow. One setup sticky note is omitted. Solid lines represent main connections; dashed lines represent AI model/parser connections.
 
-1. Use a presentation copy of the actual n8n workflow. Keep the real node structure and connections.
-2. Review visible labels and open panels for business data, credentials, URLs, and execution values before sharing.
-3. Capture at a resolution where node labels are legible at 100%. Enlarging a low-resolution screenshot cannot recover detail. For a large canvas, capture overlapping sections at readable scale and stitch them into one image.
-4. Save a reviewed full-resolution PNG as `docs/assets/workflow-full.png`. Keep a smaller preview for the README if needed.
-5. Inspect the image at full resolution before publishing it.
+## Public data boundary
 
-## Publish the zoom viewer
+Only display names, node types, positions, and connections are included. A business-specific portal label is generalized. Node IDs, parameters, custom code, prompts, credentials, execution/pinned data, document contents, and the original workflow export are excluded.
 
-After the real image has been added, enable GitHub Pages from the repository's `main` branch and `/docs` folder. The viewer will then be available at the Pages site's `workflow-viewer.html` path. Its default image path is `assets/workflow-full.png`.
+## Publish on GitHub Pages
 
-GitHub's repository file view displays HTML source; it does not run this viewer inside the README. Use a preview image in the README linked to the published viewer. Do not add the live link until Pages is enabled and verified.
+After merging, configure **Settings → Pages → Deploy from a branch → main → /docs**. The explorer will be served at the Pages site's `workflow-viewer.html` path. GitHub's repository view shows HTML source, so it cannot run the explorer inside the README itself.
 
-## If the canvas is exceptionally large
-
-A single high-resolution image works for normal workflow screenshots. If it becomes too large to decode or move smoothly on mobile, use a tiled image viewer: divide the image into multiple zoom levels and load only the visible tiles. This viewer currently uses one image and does not claim tiled rendering.
+When the hosted page is verified, change the README preview link to that live explorer URL. Until then the README links to the downloadable file. No Pages deployment is claimed by these files.
