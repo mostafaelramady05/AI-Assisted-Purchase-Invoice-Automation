@@ -18,6 +18,16 @@ My role: workflow design, accounting routing, validation, ERP integration, uploa
 | A save response may be inconclusive | Saved-record verification and a reconciliation outcome when uncertain. |
 | The operator needs to know what happened | Upload/status interface and activity-log visibility. |
 
+## Explore the actual workflow
+
+**132 processing nodes · 146 connections.** The uploaded export contains 133 nodes; one setup note is omitted from the presentation map.
+
+[![Full workflow structure](docs/assets/workflow-map.svg)](docs/workflow-viewer.html)
+
+The SVG preserves the supplied node positions and connections with custom presentation styling. The explorer adds zoom, drag, section shortcuts, and node-name search. Download the [self-contained HTML explorer](docs/workflow-viewer.html) and open it in a browser; GitHub renders HTML files as source. See [hosting instructions](docs/workflow-image-guide.md) for GitHub Pages.
+
+Only node display names, types, positions, and connections are included. The uploaded export, parameters, code, prompts, credentials, and pinned data are not published.
+
 ## The workflow
 
 This is a simplified architecture diagram, not an export of the production n8n canvas.
@@ -46,7 +56,7 @@ flowchart TD
 | Process analysis | Separate invoice, simplified-invoice, and payment paths instead of treating every document as the same transaction. | [Routing architecture](docs/architecture.md#accounting-routing) |
 | Accounting judgment | Check buyer identity, supplier matching, required data, and duplicates before allowing invoice creation. | [Ready-to-record and review journeys](sample-case.md) |
 | Structured data handling | Extract document fields into a structure that can be checked before ERP posting. | [Validation boundary](docs/architecture.md#validation-boundary) |
-| n8n orchestration | Connect intake, classification, decisions, posting, and status updates into an end-to-end process. | Architecture diagram above; full canvas image is not yet included. |
+| n8n orchestration | Connect intake, classification, decisions, posting, and status updates into an end-to-end process. | [Actual workflow structure](docs/assets/workflow-map.svg) and searchable explorer. |
 | ERP integration | Record the appropriate Daftra transaction and attach its source document where applicable. | [Posting and verification](docs/architecture.md#posting-and-verification) |
 | Exception handling | Pause for unclear supplier identity and leave uncertain saves for reconciliation. | [Supplier payment journey](sample-case.md#supplier-payment-unclear-beneficiary) |
 | Operator experience | Expose document status and the stage/reason requiring attention. | [Operator feedback](docs/architecture.md#operator-feedback) |
@@ -63,8 +73,8 @@ flowchart TD
 
 - **Architecture and decision rationale:** documented here and in the linked architecture page.
 - **Illustrative cases:** fictional document journeys explaining successful, review, and uncertain outcomes.
-- **Image viewer:** a functional pan-and-zoom page for a full-resolution workflow image; see the [image guide](docs/workflow-image-guide.md).
-- **Production evidence:** the full n8n canvas image, UI screenshots, execution examples, and implementation code are not currently included. The public descriptions are not a substitute for inspecting those artifacts.
+- **Workflow map:** a vector reconstruction of the supplied graph, with a self-contained pan-and-zoom explorer; see the [map guide](docs/workflow-image-guide.md).
+- **Evidence boundary:** the graph demonstrates actual node organization and routing. UI screenshots, observed execution examples, node parameters, and implementation code are not published here; the map does not prove execution outcomes.
 
 ## Stack
 
