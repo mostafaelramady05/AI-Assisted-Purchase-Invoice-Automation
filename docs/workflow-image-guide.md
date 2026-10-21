@@ -1,22 +1,27 @@
-# Explore the n8n workflow as a map
+# Interactive workflow explorer
 
 [Back to the project](../README.md)
 
-## What is included
+## Open in your browser
 
-- [Vector workflow map](assets/workflow-map.svg): 132 processing nodes and 146 connections from the uploaded workflow export.
-- [Self-contained explorer](workflow-viewer.html): zoom, drag, touch pinch, fullscreen, section navigation, and node-name search. The vector image and search index are embedded, so downloading this single HTML file is enough to use it locally.
+[Explore the live workflow](https://mostafaelramady05.github.io/AI-Assisted-Purchase-Invoice-Automation/)
 
-Download the HTML using GitHub's **Download raw file** control, then open it in a browser. Use **Section** to jump to document checks, purchase invoice posting, simplified-invoice journals, supplier payments, or the upload/status portal. Search a node name and choose a result to jump to its position. **Fit** returns to the overview; **100%** shows readable native node labels.
+The site entry point redirects to `workflow-viewer.html`. Once GitHub Pages is enabled, visitors can open the explorer directly without downloading a file or signing in.
 
-The map uses custom styling and curves while preserving supplied node coordinates and connection topology. It is not a screenshot of the n8n editor or an editable/runnable workflow. One setup sticky note is omitted. Solid lines represent main connections; dashed lines represent AI model/parser connections.
+Use **Section** to jump between document checks, purchase invoices, journals, supplier payments, and the portal. Search a node name, select a result, and zoom or drag to inspect it. **Fit** returns to the full graph.
 
-## Public data boundary
+## One-time hosting setup
 
-Only display names, node types, positions, and connections are included. A business-specific portal label is generalized. Node IDs, parameters, custom code, prompts, credentials, execution/pinned data, document contents, and the original workflow export are excluded.
+After merging, a repository administrator must select **Settings → Pages → Source: Deploy from a branch → Branch: main → Folder: /docs → Save**. The page is not live until GitHub completes the deployment. Check the URL above after deployment.
 
-## Publish on GitHub Pages
+GitHub Markdown does not run the interactive HTML page inside a README. The large link at the top of the README opens the hosted page instead.
 
-After merging, configure **Settings → Pages → Deploy from a branch → main → /docs**. The explorer will be served at the Pages site's `workflow-viewer.html` path. GitHub's repository view shows HTML source, so it cannot run the explorer inside the README itself.
+## What is shown
 
-When the hosted page is verified, change the README preview link to that live explorer URL. Until then the README links to the downloadable file. No Pages deployment is claimed by these files.
+132 processing nodes and 146 connections reconstructed from the supplied export, preserving positions and topology with custom presentation styling. One setup note is omitted. Solid lines represent main connections; dashed lines represent model/parser links.
+
+The map includes display labels, types, coordinates, and connections only. It excludes the original export, parameters, code, prompts, credentials, IDs, and execution/pinned data. It is a presentation map, not an editable or executable workflow.
+
+## Offline option
+
+The self-contained [HTML explorer](workflow-viewer.html) can also be downloaded and opened locally.
