@@ -32,13 +32,17 @@ This separation distinguishes request completion from confirmed financial record
 
 The upload/status interface exposes processing status. The activity log records the result or the stage and reason requiring attention. Supplier-selection cases require the operator to compare the selected account with the receipt beneficiary.
 
-## Evidence to add from the actual implementation
+## Evidence from the supplied workflow
+
+The [vector map](assets/workflow-map.svg) contains 132 processing nodes and 146 connections extracted from the supplied export. It preserves node positions and routes and omits one setup note. This provides structural evidence of the workflow; it does not show private node logic or verify execution.
+
+## Additional evidence
 
 | Artifact | What it would demonstrate |
 | --- | --- |
-| Full-resolution n8n canvas | Actual node organization, routing, and integration stages. |
+| UI screenshot paired with a selected graph region | The operator experience alongside the corresponding workflow stage. |
 | Close-up of validation and exception paths | How those documented checks are implemented. |
 | Upload/status interface screenshot | The operator experience and visible states. |
 | Reviewed, anonymized execution example | Input, observed decision, and resulting status from a real run. |
 
-These artifacts are not included yet. The existing fictional journeys explain expected behavior; they are not execution logs or automated tests.
+The additional artifacts in the table are not included yet. The existing fictional journeys explain expected behavior; they are not execution logs or automated tests.
