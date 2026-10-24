@@ -1,27 +1,19 @@
-# Interactive workflow explorer
+# Explore the workflow in n8n’s canvas
 
-[Back to the project](../README.md)
+[Open the live workflow](https://mostafaelramady05.github.io/AI-Assisted-Purchase-Invoice-Automation/workflow-viewer.html) · [Back to the project](../README.md)
 
-## Open in your browser
+The viewer uses the official [`<n8n-demo>` web component](https://n8n-io.github.io/n8n-demo-webcomponent/) rather than a custom graph renderer. It retains the workflow’s node types, positions, and connections, with the native n8n canvas controls. The surrounding page provides light/dark mode and fullscreen.
 
-[Explore the live workflow](https://mostafaelramady05.github.io/AI-Assisted-Purchase-Invoice-Automation/)
+## Presentation data
 
-The site entry point redirects to `workflow-viewer.html`. Once GitHub Pages is enabled, visitors can open the explorer directly without downloading a file or signing in.
+The embedded presentation copy contains 132 processing nodes and 146 connections. A setup sticky note is excluded, and a business-specific portal label is generalized.
 
-Use **Section** to jump between document checks, purchase invoices, journals, supplier payments, and the portal. Search a node name, select a result, and zoom or drag to inspect it. **Fit** returns to the full graph.
+Only node display names, generated presentation IDs, types, type versions, positions, and connection topology are retained. Private node parameters, custom code, prompts, credentials, webhook identifiers, pinned data, and source metadata are excluded. Switch rules use neutral presentation placeholders to retain their visual output ports; these are not the production conditions.
 
-## One-time hosting setup
+This page demonstrates the workflow structure. It is not the production workflow or a runnable template.
 
-After merging, a repository administrator must select **Settings → Pages → Source: Deploy from a branch → Branch: main → Folder: /docs → Save**. The page is not live until GitHub completes the deployment. Check the URL above after deployment.
+## Dependencies
 
-GitHub Markdown does not run the interactive HTML page inside a README. The large link at the top of the README opens the hosted page instead.
+The page loads `@n8n_io/n8n-demo-component` version `1.0.20` from jsDelivr. The component renders the sanitized presentation data through n8n’s external preview service. Internet access to both services is required; the page displays a retry message if loading takes too long.
 
-## What is shown
-
-132 processing nodes and 146 connections reconstructed from the supplied export, preserving positions and topology with custom presentation styling. One setup note is omitted. Solid lines represent main connections; dashed lines represent model/parser links.
-
-The map includes display labels, types, coordinates, and connections only. It excludes the original export, parameters, code, prompts, credentials, IDs, and execution/pinned data. It is a presentation map, not an editable or executable workflow.
-
-## Offline option
-
-The self-contained [HTML explorer](workflow-viewer.html) can also be downloaded and opened locally.
+No access to the author’s live n8n instance or Daftra account is required. GitHub Pages continues to serve the same `workflow-viewer.html` URL, so existing portfolio and profile links remain valid.
